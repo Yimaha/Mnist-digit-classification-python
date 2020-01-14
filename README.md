@@ -37,6 +37,10 @@ to my NN tool box.
 
 Now I am trying to implement that last bit of the textbook, which is **deep learning**. It should increase my accuracy to above **99.5%**
 
+Oh btw here is the book: [Neural Networks and Deep Learning by Micheal Nielsen](http://neuralnetworksanddeeplearning.com/index.html)
+
+Shout out to [Micheal Nielsen](http://michaelnielsen.org/) and [3b1b](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw), who inspired me to start learning neural network and deep learning
+
 ## terminal accuracy
 This is my highest accuracy at the moment: 
 
@@ -49,6 +53,5 @@ This is my highest accuracy at the moment:
 **solutions** folder contains all the solutions to different types of network. **most of them are playground file other than network, network2, and network3(incoming)**.
 
 **utils** folder contains all the utilities used, such as calculation utilities, or Mnist file reading utilities.
-
 
 
