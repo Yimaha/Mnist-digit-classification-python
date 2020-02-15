@@ -1,5 +1,7 @@
 import numpy as np
-
+from theano.tensor import shared_randomstreams
+import theano.tensor as T
+import theano
 
 def sigmoid(z):
     """The sigmoid function."""
@@ -21,6 +23,13 @@ def vectorized_result(j):
     e[j] = 1.0
     return e
 
+def dropout_layer(layer, p_dropout):
+
+    # create a seeded random stream for binomials
+    srng = shared_randomstreams.RandomStreams(
+        np.random.RandomState(0).randint(999999)) # seed = 0 with highest integer = 999999
+    mask = srng.binomial(n=1, p=1-p_dropout, size=layer.shape) # matrix of either 1 or 0
+    return layer*T.cast(mask, theano.config.floatX)  # randomly kill a lot of neurons, setting their affect to 0;
 
 class CrossEntropyCost(object):
 
@@ -42,3 +51,5 @@ class QuadraticCost(object):
     @staticmethod
     def delta(z, a, y):
         return (a - y) * sigmoid_prime(z)
+
+
